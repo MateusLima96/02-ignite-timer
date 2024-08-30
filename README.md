@@ -1,5 +1,9 @@
 # Módulo do curso Aprofundando conhecimento em Hooks pela @RocketSeat
 
+Neste curso aprendi a construir uma aplicação completa com roteamento e diversos conceitos importantes do ecossistema React como ContextAPI, useReducer, immer e muito mais.
+
+Irei descrever brevemente um dos temas que aprendi durante este curso.
+
 # Context API no React
 
 A **Context API** do React é uma ferramenta poderosa para compartilhar dados entre componentes em uma aplicação React, evitando a necessidade de passar props manualmente em cada nível da árvore de componentes. Isso ajuda a resolver o problema conhecido como **prop drilling**.
