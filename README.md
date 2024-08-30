@@ -1,50 +1,33 @@
-# React + TypeScript + Vite
+# Módulo do curso Aprofundando conhecimento em Hooks pela @RocketSeat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Context API no React
 
-Currently, two official plugins are available:
+A **Context API** do React é uma ferramenta poderosa para compartilhar dados entre componentes em uma aplicação React, evitando a necessidade de passar props manualmente em cada nível da árvore de componentes. Isso ajuda a resolver o problema conhecido como **prop drilling**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## O que é Prop Drilling?
 
-## Expanding the ESLint configuration
+**Prop drilling** ocorre quando você precisa passar dados de um componente pai para um componente filho distante na hierarquia de componentes, atravessando vários níveis intermediários que não utilizam esses dados diretamente. Esse padrão torna o código difícil de manter e propenso a erros.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Como a Context API Ajuda?
 
-- Configure the top-level `parserOptions` property like this:
+A **Context API** permite criar um contexto que pode ser acessado por qualquer componente, em qualquer nível da árvore, sem a necessidade de passar props manualmente. Isso é feito através de dois componentes principais: o **Provider** e o **Consumer**.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Passos para Usar a Context API
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. **Criação do Contexto:** Crie um contexto usando `React.createContext()`.
+2. **Provider:** Utilize o `Provider` para envolver a parte da árvore de componentes onde o contexto deve ser acessível e forneça o valor a ser compartilhado.
+3. **Consumer:** Utilize o `Consumer` ou o hook `useContext` para acessar o contexto em componentes filhos.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Exemplo de Código
+ 
+[CyclesContext.tsx](src/contexts/CyclesContext.tsx) criação do contexto.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+![image](https://github.com/user-attachments/assets/74047a24-9b0f-42cc-968c-e72e2b4d19f8)
+
+![image](https://github.com/user-attachments/assets/0fc90750-1c3d-416e-b2e7-6ec44ec73aa8)
+
+
+[App.tsx](src/App.tsx) fazendo o contexto ser reconhecido na aplicação englobando todas as rotas.
+
+![image](https://github.com/user-attachments/assets/4fb1a7d6-d467-437f-9223-ed4217a5d78b)
+
